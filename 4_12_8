@@ -1,0 +1,35 @@
+from math import exp
+from math import sqrt
+from math import log
+
+
+def f1(x):
+    return (x - 1) * log(x+5)
+
+
+def ff1(x):
+    return log(x+5) + (x - 1) / (x+5)
+
+
+def MN(current, func, ffunc, e):
+    n=0
+    while abs(func(current)) > e:
+        n+=1
+        current = current - func(current) / ffunc(current)
+    print(n)
+    return current
+
+
+def MSI(current, func, e):
+    n=0
+    while abs(func(current)) > e:
+        n+=1
+       
+        current = current - func(current)
+    print(n)
+    return current
+
+
+e = 1e-4
+left = MN(0.5, f1, ff1, e)
+right = MSI(0.5, f1, e)
