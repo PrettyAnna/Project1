@@ -1,0 +1,13 @@
+import numpy as np
+
+
+def get_next_point(x, y):
+    return np.arctan(y), np.sqrt(1 - x ** 2)
+
+
+x = 0.6
+y = 0.7
+for _ in range(35):
+    x, y = get_next_point(x, y)
+
+print("Ответ,", [x, y], [-x, -y])
